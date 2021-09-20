@@ -88,7 +88,8 @@ export default function ActivityForm({
         <Button
           onClick={closeForm}
           floated="right"
-          positive
+          basic
+          color='grey'
           type="button"
           content="Cancel"
         />
