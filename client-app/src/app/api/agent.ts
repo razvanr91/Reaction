@@ -23,7 +23,7 @@ axios.interceptors.response.use(async response => {
         toast.error(data);
       }
 
-      if (config.method == 'get' && data.errors.hasOwnProperty('id')) {
+      if (config.method === 'get' && data.errors.hasOwnProperty('id')) {
         history.push('/not-found');
       }
       
