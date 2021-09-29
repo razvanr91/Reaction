@@ -11,8 +11,8 @@ export default function HomePage() {
           Reaction
         </Header>
         <Header as='h2' inverted content='Welcome to Reaction' />
-        <Button as={Link} to='/activities' size='huge' inverted>
-          Take me to the Activities!
+        <Button as={Link} to='/login' size='huge' inverted>
+          Log me in!
         </Button>
       </Container>
     </Segment>
