@@ -1,6 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using API.DTOs;
@@ -23,8 +20,7 @@ namespace API.Controllers
         private readonly TokenService _tokenService;
 
         public AccountController(UserManager<AppUser> userManager, SignInManager<AppUser> signInManager,
-        
-        TokenService tokenService)
+                                            TokenService tokenService)
         {
             _tokenService = tokenService;
             _userManager = userManager;
@@ -65,7 +61,7 @@ namespace API.Controllers
             {
                 DisplayName = registerDto.DisplayName,
                 Email = registerDto.Email,
-                UserName = registerDto.Email
+                UserName = registerDto.Username
             };
 
             var result = await _userManager.CreateAsync(user, registerDto.Password);
@@ -83,7 +79,6 @@ namespace API.Controllers
         public async Task<ActionResult<UserDto>> GetCurrentUser()
         {
             var user = await _userManager.FindByEmailAsync(User.FindFirstValue(ClaimTypes.Email));
-
             return CreateUserObject(user);
         }
 
