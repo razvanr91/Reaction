@@ -4,6 +4,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Button, Header, Image, Item, Segment } from 'semantic-ui-react';
 import { Activity } from '../../../app/models/activity';
+import { useStore } from '../../../app/stores/store';
 
 const activityImageStyle = {
     filter: 'brightness(30%)'
@@ -23,6 +24,7 @@ interface Props {
 }
 
 export default observer(function ActivityDetailedHeader({activity}: Props) {
+  const {activityStore: {updateAttendance, loading}} = useStore();
     return (
       <Segment.Group>
         <Segment basic attached="top" style={{ padding: "0" }}>
@@ -63,9 +65,9 @@ export default observer(function ActivityDetailedHeader({activity}: Props) {
                 content="Manage event"
               />
             ) : activity.isGoing ? (
-              <Button content="Cancel attendance" />
+              <Button loading={loading} onClick={updateAttendance} content="Cancel attendance" />
             ) : (
-              <Button color="teal" content="Join Activity" />
+              <Button loading={loading} onClick={updateAttendance} color="teal" content="Join Activity" />
             )}
           </Segment>
         </Segment>
