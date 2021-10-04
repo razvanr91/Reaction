@@ -13,7 +13,7 @@ import MyTextArea from "../../../app/common/form/MyTextArea";
 import { categoryOptions } from "../../../app/common/options/categoryOptions";
 import MySelectInput from "../../../app/common/form/MySelectInput";
 import MyDateInput from "../../../app/common/form/MyDateInput";
-import { Activity, ActivityFormValues } from "../../../app/models/activity";
+import { ActivityFormValues } from "../../../app/models/activity";
 
 export default observer(function ActivityForm() {
   const history = useHistory();
@@ -22,7 +22,6 @@ export default observer(function ActivityForm() {
   const {
     createActivity,
     updateActivity,
-    loading,
     loadActivity,
     loadingInitial,
   } = activityStore;
