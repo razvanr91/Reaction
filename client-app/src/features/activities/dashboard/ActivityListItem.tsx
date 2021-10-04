@@ -14,6 +14,9 @@ export default function ActivityListItem({activity}: Props) {
   return (
     <Segment.Group>
         <Segment>
+            {activity.isCancelled && 
+                <Label attached='top' color='red' content='Cancelled' style={{textAlign: 'center'}} />
+            }
             <Item.Group>
                 <Item>
                     <Item.Image size='tiny' circular src='/assets/user.png' />
@@ -34,7 +37,7 @@ export default function ActivityListItem({activity}: Props) {
                         {activity.isGoing && !activity.isHost && (
                             <Item.Description>
                                 <Label basic color='green'>
-                                    You are going to this activity
+                                    You are going to this activity\
                                 </Label>
                             </Item.Description>
                         )}
