@@ -13,7 +13,9 @@ using Persistance;
 
 namespace Application.Photos
 {
-    public class Command : IRequest<Result<Photo>>
+    public class Add 
+    {
+        public class Command : IRequest<Result<Photo>>
     {
         public IFormFile File { get; set; }
 
@@ -60,5 +62,6 @@ namespace Application.Photos
 
             return Result<Photo>.Failure("Problem adding photo");
         }
+    }
     }
 }
